@@ -39,7 +39,7 @@ public class Menu {
 		
 		for(OptionMenu action : this.actions) {
 			
-			System.out.println("\n" + action.getLibelle());
+			System.out.println(action.getLibelle());
 			
 		}
 		

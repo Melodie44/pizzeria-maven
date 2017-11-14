@@ -25,8 +25,7 @@ public class ModifierPizzaOptionMenu extends OptionMenu{
 		ListerPizzasOptionMenu liste = new ListerPizzasOptionMenu(dao, tabPizzas);
 		liste.execute(scanner);
 		
-		System.out.println("Veuillez choisir la pizza à modifier.");
-		System.out.println("(99 pour abandonner)");
+		System.out.println("Veuillez choisir la pizza à modifier (99 pour abandonner)");
 		
 		String action  = scanner.nextLine();
 		
@@ -37,8 +36,17 @@ public class ModifierPizzaOptionMenu extends OptionMenu{
 			
 		}else {
 			
-			Pizza pizza = new Pizza(action, "", 0);
+			System.out.println("Veuillez saisir le code");
+			String code  = scanner.nextLine();
 			
+			System.out.println("Veuillez saisir le nom (sans espace)");
+			String nom  = scanner.nextLine();
+			
+			System.out.println("Veuillez saisir le prix");
+			String prix  = scanner.nextLine();
+			
+			Pizza pizza = new Pizza(code, nom, Double.parseDouble(prix));
+
 			dao.updatePizza(action, pizza);
 			
 		}

@@ -50,10 +50,10 @@ public class PizzaDao implements IPizzaDao{
 
 		for(Pizza pizzaTab : this.tabPizzas) {
 			
-			if(pizza.getCode().equals(pizzaTab.getCode())) {
+			if(codePizza.equals(pizzaTab.getCode())) {
 				
 				pizzaTab.setCode(pizza.getCode());
-				pizzaTab.setNom(pizza.getCode());
+				pizzaTab.setNom(pizza.getNom());
 				pizzaTab.setPrix(pizza.getPrix());
 				
 				break;
@@ -67,10 +67,8 @@ public class PizzaDao implements IPizzaDao{
 	public boolean deletePizza(String codePizza) {
 		
 		for(Pizza pizza : this.tabPizzas) {
-
-			Pizza newPizza = new Pizza(codePizza, null, 0);
 			
-			if(newPizza.getCode().equals(pizza.getCode())) {
+			if(codePizza.equals(pizza.getCode())) {
 				
 				pizza.setCode(null);
 				pizza.setNom(null);
