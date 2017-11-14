@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.exception.DeletePizzaException;
 import fr.pizzeria.model.OptionMenu;
 import fr.pizzeria.model.Pizza;
 
@@ -19,12 +20,16 @@ public class SupprimerPizzaOptionMenu extends OptionMenu{
 	}
 
 	@Override
-	public boolean execute(Scanner scanner) {
+	public boolean execute(Scanner scanner) throws DeletePizzaException{
 		
 		System.out.println("Veuillez saisir le code");
 		String code  = scanner.nextLine();
 		
-		dao.deletePizza(code);
+		if(dao.deletePizza(code) == false) {
+			
+			throw new DeletePizzaException("Erreur, la suppression de la pizza a échoué");
+			
+		};
 		
 		return true;
 	}

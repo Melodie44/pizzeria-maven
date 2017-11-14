@@ -3,6 +3,7 @@ package fr.pizzeria.ihm;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.OptionMenu;
 import fr.pizzeria.model.Pizza;
 
@@ -18,7 +19,7 @@ public class ModifierPizzaOptionMenu extends OptionMenu{
 	}
 
 	@Override
-	public boolean execute(Scanner scanner) {
+	public boolean execute(Scanner scanner) throws UpdatePizzaException{
 		
 		System.out.println("Mise à jour d'une pizza");
 		
@@ -47,8 +48,10 @@ public class ModifierPizzaOptionMenu extends OptionMenu{
 			
 			Pizza pizza = new Pizza(code, nom, Double.parseDouble(prix));
 
-			dao.updatePizza(action, pizza);
-			
+			if(dao.updatePizza(action, pizza) == false) {
+				
+				throw new UpdatePizzaException("Erreur, la mise à jour de la pizza a échoué");
+			}
 		}
 		
 		return true;

@@ -1,10 +1,6 @@
 package fr.pizzeria.ihm;
 
-
-import java.util.Arrays;
 import java.util.Scanner;
-
-import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.model.Menu;
 import fr.pizzeria.model.OptionMenu;
@@ -79,7 +75,12 @@ public class PizzeriaAdminConsoleApp {
 					
 					option = new ListerPizzasOptionMenu(dao, tabPizzas);
 					
-					option.execute(scanner);
+					try {
+						option.execute(scanner);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					
 					break;
 					
@@ -87,7 +88,12 @@ public class PizzeriaAdminConsoleApp {
 
 					option = new AjouterPizzaOptionMenu(dao, tabPizzas);
 	
-					option.execute(scanner);
+					try {
+						option.execute(scanner);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					
 					break;
 					
@@ -95,7 +101,12 @@ public class PizzeriaAdminConsoleApp {
 					
 					option = new ModifierPizzaOptionMenu(dao, tabPizzas);
 					
-					option.execute(scanner);
+					try {
+						option.execute(scanner);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					
 					break;
 				
@@ -103,7 +114,12 @@ public class PizzeriaAdminConsoleApp {
 					
 					option = new SupprimerPizzaOptionMenu(dao, tabPizzas);
 					
-					option.execute(scanner);
+					try {
+						option.execute(scanner);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					
 					break;
 				
@@ -111,7 +127,12 @@ public class PizzeriaAdminConsoleApp {
 					
 					option = new ExitApplication();
 					
-					option.execute(scanner);
+					try {
+						option.execute(scanner);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					
 					exit = true;
 					

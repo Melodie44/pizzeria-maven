@@ -14,6 +14,6 @@ public abstract class OptionMenu {
 		this.libelle = libelle;
 	}
 	
-	public abstract boolean execute(Scanner scanner);
+	public abstract boolean execute(Scanner scanner) throws Exception;
 
 }

@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.model.OptionMenu;
 import fr.pizzeria.model.Pizza;
 
@@ -19,7 +20,7 @@ public class AjouterPizzaOptionMenu extends OptionMenu{
 	}
 
 	@Override
-	public boolean execute(Scanner scanner) {
+	public boolean execute(Scanner scanner) throws SavePizzaException{
 		
 		System.out.println("Veuillez saisir le code");
 		String code  = scanner.nextLine();
@@ -32,9 +33,12 @@ public class AjouterPizzaOptionMenu extends OptionMenu{
 		
 		Pizza newPizza = new Pizza(code, nom, Double.parseDouble(prix));
 		
-		dao.saveNewPizza(newPizza);
+		if(dao.saveNewPizza(newPizza) == false) {
+			
+			throw new SavePizzaException("Erreur, la sauvegarde de la pizza a échouée");
+			
+		};
 		
-		return false ;
-		
+		return true;
 	}
 }
