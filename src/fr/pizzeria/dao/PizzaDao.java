@@ -73,6 +73,7 @@ public class PizzaDao implements IPizzaDao{
 				pizzaElt.setCode(pizza.getCode());
 				pizzaElt.setNom(pizza.getNom());
 				pizzaElt.setPrix(pizza.getPrix());
+				pizzaElt.setCategorie(pizza.getCategorie());
 				
 				return true;
 			}

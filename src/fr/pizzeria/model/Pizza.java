@@ -13,16 +13,14 @@ public class Pizza {
 	private String code;
 	private String nom;
 	private double prix;
+	private CategoriePizza categorie;
 	
-	public Pizza() {
-		
-	}
-	
-	public Pizza(String code, String nom, double prix) {
+	public Pizza(String code, String nom, double prix, CategoriePizza categorie) {
 		this.id += 1;
 		this.code = code;
 		this.nom = nom;
 		this.prix = prix;
+		this.categorie = categorie;
 	}
 	
 	public String getCode() {
@@ -49,9 +47,20 @@ public class Pizza {
 		this.prix = prix;
 	}
 
+	public CategoriePizza getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(CategoriePizza categorie) {
+		this.categorie = categorie;
+	}
+
 	@Override
 	public String toString() {
-		return code + " -> " + nom + " (" + prix + " €)";
+		
+		String infos = code + " -> " + nom + " (" + prix + " €) catégorie " + categorie.getValue();
+		
+		return infos;
 	}
 
 	@Override

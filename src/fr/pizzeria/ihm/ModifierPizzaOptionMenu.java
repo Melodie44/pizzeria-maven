@@ -6,6 +6,7 @@ import java.util.Scanner;
 import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.exception.StockageException;
 import fr.pizzeria.exception.UpdatePizzaException;
+import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.OptionMenu;
 import fr.pizzeria.model.Pizza;
 
@@ -75,7 +76,35 @@ public class ModifierPizzaOptionMenu extends OptionMenu{
 			System.out.println("Veuillez saisir le prix");
 			String prix  = scanner.nextLine();
 			
-			Pizza pizza = new Pizza(code, nom, Double.parseDouble(prix));
+			System.out.println("Veuillez saisir la categorie");
+			System.out.println("1. Viande");
+			System.out.println("2. Sans viande");
+			System.out.println("3. Poisson");
+			String categorie  = scanner.nextLine();
+			
+			CategoriePizza cate = null;
+			switch(categorie) {
+				
+				case "1" : 
+					
+					cate = CategoriePizza.VIANDE;
+					
+					break;
+					
+				case "2" :
+					
+					cate = CategoriePizza.SANS_VIANDE;
+					
+					break;
+					
+				case "3" :
+					
+					cate = CategoriePizza.POISSON;
+					
+					break;
+			}
+			
+			Pizza pizza = new Pizza(code, nom, Double.parseDouble(prix), cate);
 
 			if(dao.updatePizza(action, pizza) == false) {
 				

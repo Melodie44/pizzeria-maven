@@ -8,6 +8,7 @@ import java.util.Scanner;
 import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.exception.StockageException;
+import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Menu;
 import fr.pizzeria.model.OptionMenu;
 import fr.pizzeria.model.Pizza;
@@ -32,14 +33,14 @@ public class PizzeriaAdminConsoleApp {
 		String prix = new String();
 		
 		// Création des pizzas
-		Pizza pizza0 = new Pizza("PEP", "Pépéroni", 12.50);
-		Pizza pizza1 = new Pizza("MAR", "Margherita", 14);
-		Pizza pizza2 = new Pizza("REIN", "La Reine", 11.50);
-		Pizza pizza3 = new Pizza("FRO", "La 4 fromages", 12.00);
-		Pizza pizza4 = new Pizza("CAN", "La cannibale", 12.50);
-		Pizza pizza5 = new Pizza("SAV", "La savoyarde", 13.00);
-		Pizza pizza6 = new Pizza("ORI", "L'orientale", 13.50);
-		Pizza pizza7 = new Pizza("IND", "L'Indienne", 14.00);
+		Pizza pizza0 = new Pizza("PEP", "Pépéroni", 12.50, CategoriePizza.SANS_VIANDE);
+		Pizza pizza1 = new Pizza("MAR", "Margherita", 14, CategoriePizza.VIANDE);
+		Pizza pizza2 = new Pizza("REIN", "La Reine", 11.50, CategoriePizza.VIANDE);
+		Pizza pizza3 = new Pizza("FRO", "La 4 fromages", 12.00, CategoriePizza.SANS_VIANDE);
+		Pizza pizza4 = new Pizza("CAN", "La cannibale", 12.50, CategoriePizza.VIANDE);
+		Pizza pizza5 = new Pizza("SAV", "La savoyarde", 13.00, CategoriePizza.SANS_VIANDE);
+		Pizza pizza6 = new Pizza("ORI", "L'orientale", 13.50, CategoriePizza.VIANDE);
+		Pizza pizza7 = new Pizza("IND", "L'Indienne", 14.00, CategoriePizza.VIANDE);
 		
 		// Création de la liste des pizzas
 		List<Pizza> pizzas = new ArrayList<Pizza>();
