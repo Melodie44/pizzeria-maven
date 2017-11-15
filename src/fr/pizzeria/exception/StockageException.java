@@ -9,5 +9,9 @@ public class StockageException extends Exception{
 		this.message = message;
 		
 	}
-	
+
+	public String getMessage() {
+		return message;
+	}
+
 }

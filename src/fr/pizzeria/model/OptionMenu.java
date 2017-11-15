@@ -2,6 +2,8 @@ package fr.pizzeria.model;
 
 import java.util.Scanner;
 
+import fr.pizzeria.exception.StockageException;
+
 public abstract class OptionMenu {
 	
 	public String libelle;
@@ -14,6 +16,6 @@ public abstract class OptionMenu {
 		this.libelle = libelle;
 	}
 	
-	public abstract boolean execute(Scanner scanner) throws Exception;
+	public abstract boolean execute(Scanner scanner) throws StockageException;
 
 }

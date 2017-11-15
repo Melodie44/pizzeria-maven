@@ -2,6 +2,8 @@ package fr.pizzeria.ihm;
 
 import java.util.Scanner;
 import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.exception.SavePizzaException;
+import fr.pizzeria.exception.StockageException;
 import fr.pizzeria.model.Menu;
 import fr.pizzeria.model.OptionMenu;
 import fr.pizzeria.model.Pizza;
@@ -58,7 +60,7 @@ public class PizzeriaAdminConsoleApp {
 		actions[4].setLibelle("99. Sortir");
 		
 		// Création du menu
-		String titre = "***** Pizzeria Administration *****";
+		String titre = "\n***** Pizzeria Administration *****";
 		Menu menu = new Menu(titre, actions);
 
 		// Déroulement programme
@@ -78,8 +80,8 @@ public class PizzeriaAdminConsoleApp {
 					try {
 						option.execute(scanner);
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						
+						System.out.println(e.getMessage());
 					}
 					
 					break;
@@ -87,14 +89,14 @@ public class PizzeriaAdminConsoleApp {
 				case "2" :
 
 					option = new AjouterPizzaOptionMenu(dao, tabPizzas);
-	
+
 					try {
 						option.execute(scanner);
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+					} catch (StockageException e) {
+						
+						System.out.println(e.getMessage());
 					}
-					
+	
 					break;
 					
 				case "3" :
@@ -104,8 +106,8 @@ public class PizzeriaAdminConsoleApp {
 					try {
 						option.execute(scanner);
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						
+						System.out.println(e.getMessage());
 					}
 					
 					break;
@@ -117,8 +119,8 @@ public class PizzeriaAdminConsoleApp {
 					try {
 						option.execute(scanner);
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						
+						System.out.println(e.getMessage());
 					}
 					
 					break;
@@ -130,8 +132,8 @@ public class PizzeriaAdminConsoleApp {
 					try {
 						option.execute(scanner);
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						
+						System.out.println(e.getMessage());
 					}
 					
 					exit = true;

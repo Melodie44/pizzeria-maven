@@ -3,6 +3,7 @@ package fr.pizzeria.ihm;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.exception.StockageException;
 import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.OptionMenu;
 import fr.pizzeria.model.Pizza;
@@ -50,7 +51,7 @@ public class ModifierPizzaOptionMenu extends OptionMenu{
 
 			if(dao.updatePizza(action, pizza) == false) {
 				
-				throw new UpdatePizzaException("Erreur, la mise à jour de la pizza a échoué");
+				throw new UpdatePizzaException("Erreur, la pizza à mettre à jour n'existe pas");
 			}
 		}
 		

@@ -5,6 +5,7 @@ import java.util.Scanner;
 import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.exception.DeletePizzaException;
+import fr.pizzeria.exception.StockageException;
 import fr.pizzeria.model.OptionMenu;
 import fr.pizzeria.model.Pizza;
 
@@ -27,7 +28,7 @@ public class SupprimerPizzaOptionMenu extends OptionMenu{
 		
 		if(dao.deletePizza(code) == false) {
 			
-			throw new DeletePizzaException("Erreur, la suppression de la pizza a échoué");
+			throw new DeletePizzaException("Erreur, la pizza à supprimer n'existe pas");
 			
 		};
 		

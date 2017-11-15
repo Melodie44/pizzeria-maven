@@ -19,7 +19,7 @@ public class PizzaDao implements IPizzaDao{
 
 	@Override
 	public boolean saveNewPizza(Pizza pizza) {
-
+		
 		this.tabPizzas = findAllPizzas();
 		
 		Pizza[] tabPizzas2 = new Pizza[tabPizzas.length+1];
@@ -56,11 +56,11 @@ public class PizzaDao implements IPizzaDao{
 				pizzaTab.setNom(pizza.getNom());
 				pizzaTab.setPrix(pizza.getPrix());
 				
-				break;
+				return true;
 			}
 		}
 		
-		return true;
+		return false;
 	}
 
 	@Override
@@ -74,11 +74,11 @@ public class PizzaDao implements IPizzaDao{
 				pizza.setNom(null);
 				pizza.setPrix(0);
 				
-				break;	
+				return true;	
 			}
 		}
 		
-		return true;
+		return false;
 	}
 
 }
