@@ -4,6 +4,13 @@ import java.util.Scanner;
 
 import fr.pizzeria.exception.StockageException;
 
+/**
+ * Classe de création, gestion d'une option.
+ * 
+ * @author Maubois Mélodie
+ * @ version 1.0
+ *
+ */
 public abstract class OptionMenu {
 	
 	public String libelle;

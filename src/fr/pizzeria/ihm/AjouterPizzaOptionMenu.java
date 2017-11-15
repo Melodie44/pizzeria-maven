@@ -9,17 +9,44 @@ import fr.pizzeria.exception.StockageException;
 import fr.pizzeria.model.OptionMenu;
 import fr.pizzeria.model.Pizza;
 
+/**
+ * Classe de l'option pour ajouter une pizza.
+ * 
+ * @author Maubois Mélodie
+ * @version 1.0
+ *
+ */
 public class AjouterPizzaOptionMenu extends OptionMenu{
 	
 	private PizzaDao dao;
 	private Pizza[] tabPizzas;
 	
+	/**
+	 * Constructeur de création de l'option ajouter une pizza.
+	 * 
+	 * @param dao
+	 * 			Une instance de classe PizzaDao.
+	 * 
+	 * @param tabPizzas
+	 * 				  Le tableau contenant les pizzas.
+	 */
 	public AjouterPizzaOptionMenu(PizzaDao dao, Pizza[] tabPizzas) {
 		
 		this.dao = dao;
 		this.tabPizzas = tabPizzas;
 	}
 
+	/**
+	 * Méthode d'affichage de l'option ajouter pizza.
+	 * 
+	 * @param Scanner
+	 *				la réponse de l'utilisateur.
+	 *
+	 * @return Un boolean, true si tout c'est bien passé.
+	 * 
+	 * @throws SavePizzaException, si jamais : - le code est trop grand.
+	 * 							  			  - le prix est négatif.
+	 */
 	@Override
 	public boolean execute(Scanner scanner) throws SavePizzaException{
 

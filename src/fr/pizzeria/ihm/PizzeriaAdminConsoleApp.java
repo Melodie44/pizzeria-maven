@@ -8,6 +8,13 @@ import fr.pizzeria.model.Menu;
 import fr.pizzeria.model.OptionMenu;
 import fr.pizzeria.model.Pizza;
 
+/**
+ * Classe de lancement de l'application.
+ * 
+ * @author Maubois Mélodie
+ * @version 1.0
+ *
+ */
 public class PizzeriaAdminConsoleApp {
 	
 	static Scanner scanner = new Scanner(System.in);

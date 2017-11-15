@@ -1,5 +1,12 @@
 package fr.pizzeria.model;
 
+/**
+ * Classe de création, gestion du menu.
+ * 
+ * @author Maubois Mélodie
+ * @version 1.0
+ *
+ */
 public class Menu {
 	
 	String titre;

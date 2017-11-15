@@ -8,17 +8,44 @@ import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.OptionMenu;
 import fr.pizzeria.model.Pizza;
 
+/**
+ * Classe de l'option pour modifier une pizza.
+ * 
+ * @author Maubois Mélodie
+ * @version 1.0
+ *
+ */
 public class ModifierPizzaOptionMenu extends OptionMenu{
 
 	private PizzaDao dao;
 	private Pizza[] tabPizzas;
 	
+	/**
+	 * Constructeur de création de l'option modifier une pizza.
+	 * 
+	 * @param dao
+	 * 			Une instance de classe PizzaDao.
+	 * 
+	 * @param tabPizzas
+	 * 				  Le tableau contenant les pizzas.
+	 */
 	public ModifierPizzaOptionMenu(PizzaDao dao, Pizza[] tabPizzas) {
 		
 		this.dao = dao;
 		this.tabPizzas = tabPizzas;
 	}
 
+	/**
+	 * Méthode d'affichage de l'option modifier pizza.
+	 * 
+	 * @param Scanner
+	 *				la réponse de l'utilisateur.
+	 *
+	 * @return Un boolean, true si tout c'est bien passé.
+	 * 
+	 * @throws UpdatePizzaException, si jamais : - le code n'existe pas.
+	 * 							  			 
+	 */
 	@Override
 	public boolean execute(Scanner scanner) throws UpdatePizzaException{
 		
