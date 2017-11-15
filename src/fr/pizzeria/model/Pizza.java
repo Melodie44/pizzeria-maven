@@ -10,12 +10,17 @@ package fr.pizzeria.model;
 public class Pizza {
 
 	private int id;
+	@ToString
 	private String code;
+	@ToString
 	private String nom;
+	@ToString
 	private double prix;
+	@ToString
 	private CategoriePizza categorie;
 	
 	public Pizza(String code, String nom, double prix, CategoriePizza categorie) {
+		
 		this.id += 1;
 		this.code = code;
 		this.nom = nom;
