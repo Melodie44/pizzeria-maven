@@ -1,5 +1,8 @@
 package fr.pizzeria.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import fr.pizzeria.model.Pizza;
 
 /**
@@ -15,11 +18,11 @@ import fr.pizzeria.model.Pizza;
  */
 public class PizzaDao implements IPizzaDao{
 	
-	private Pizza[] tabPizzas;
+	private List<Pizza> pizzas;
 
-	public PizzaDao(Pizza[] tabPizzas) {
+	public PizzaDao(List<Pizza> pizzas) {
 		
-		this.tabPizzas = tabPizzas;
+		this.pizzas = pizzas;
 	}
 
 	/**
@@ -28,9 +31,9 @@ public class PizzaDao implements IPizzaDao{
 	 * @return Le tableau de pizzas.
 	 */
 	@Override
-	public Pizza[] findAllPizzas() {
+	public ArrayList<Pizza> findAllPizzas() {
 
-		return this.tabPizzas;
+		return (ArrayList<Pizza>) this.pizzas;
 	}
 	
 	/**
@@ -44,27 +47,7 @@ public class PizzaDao implements IPizzaDao{
 	@Override
 	public boolean saveNewPizza(Pizza pizza) {
 		
-		this.tabPizzas = findAllPizzas();
-		
-		Pizza[] tabPizzas2 = new Pizza[tabPizzas.length+1];
-		
-		for(int i=0; i<tabPizzas.length; i++) {
-
-			if(tabPizzas[i].getCode() != null) {
-				
-				tabPizzas2[i] = tabPizzas[i];
-
-			}else {
-				
-				tabPizzas[i] = pizza;
-				
-				break;
-			}
-		}
-		
-		tabPizzas2[tabPizzas2.length-1] = pizza;
-		
-		this.tabPizzas = tabPizzas2;
+		this.pizzas.add(pizza);
 		
 		return true;
 	}
@@ -83,13 +66,13 @@ public class PizzaDao implements IPizzaDao{
 	@Override
 	public boolean updatePizza(String codePizza, Pizza pizza) {
 
-		for(Pizza pizzaTab : this.tabPizzas) {
+		for(Pizza pizzaElt : this.pizzas) {
 			
-			if(codePizza.equals(pizzaTab.getCode())) {
+			if(codePizza.equals(pizzaElt.getCode())) {
 				
-				pizzaTab.setCode(pizza.getCode());
-				pizzaTab.setNom(pizza.getNom());
-				pizzaTab.setPrix(pizza.getPrix());
+				pizzaElt.setCode(pizza.getCode());
+				pizzaElt.setNom(pizza.getNom());
+				pizzaElt.setPrix(pizza.getPrix());
 				
 				return true;
 			}
@@ -109,13 +92,11 @@ public class PizzaDao implements IPizzaDao{
 	@Override
 	public boolean deletePizza(String codePizza) {
 		
-		for(Pizza pizza : this.tabPizzas) {
+		for(Pizza pizzaElt : this.pizzas) {
 			
-			if(codePizza.equals(pizza.getCode())) {
+			if(codePizza.equals(pizzaElt.getCode())) {
 				
-				pizza.setCode(null);
-				pizza.setNom(null);
-				pizza.setPrix(0);
+				pizzas.remove(pizzaElt);
 				
 				return true;	
 			}

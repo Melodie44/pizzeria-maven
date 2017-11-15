@@ -1,5 +1,6 @@
 package fr.pizzeria.ihm;
 
+import java.util.List;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDao;
@@ -18,7 +19,7 @@ import fr.pizzeria.model.Pizza;
 public class ModifierPizzaOptionMenu extends OptionMenu{
 
 	private PizzaDao dao;
-	private Pizza[] tabPizzas;
+	private List<Pizza> pizzas;
 	
 	/**
 	 * Constructeur de création de l'option modifier une pizza.
@@ -29,10 +30,10 @@ public class ModifierPizzaOptionMenu extends OptionMenu{
 	 * @param tabPizzas
 	 * 				  Le tableau contenant les pizzas.
 	 */
-	public ModifierPizzaOptionMenu(PizzaDao dao, Pizza[] tabPizzas) {
+	public ModifierPizzaOptionMenu(PizzaDao dao, List<Pizza> pizzas) {
 		
 		this.dao = dao;
-		this.tabPizzas = tabPizzas;
+		this.pizzas = pizzas;
 	}
 
 	/**
@@ -51,7 +52,7 @@ public class ModifierPizzaOptionMenu extends OptionMenu{
 		
 		System.out.println("Mise à jour d'une pizza");
 		
-		ListerPizzasOptionMenu liste = new ListerPizzasOptionMenu(dao, tabPizzas);
+		ListerPizzasOptionMenu liste = new ListerPizzasOptionMenu(dao, pizzas);
 		liste.execute(scanner);
 		
 		System.out.println("Veuillez choisir la pizza à modifier (99 pour abandonner)");

@@ -1,5 +1,6 @@
 package fr.pizzeria.ihm;
 
+import java.util.List;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDao;
@@ -16,7 +17,7 @@ import fr.pizzeria.model.Pizza;
 public class ListerPizzasOptionMenu extends OptionMenu{
 	
 	private PizzaDao dao;
-	private Pizza[] tabPizzas;
+	private List<Pizza> pizzas;
 	
 	/**
 	 * Constructeur de création de l'option lister les pizzas.
@@ -27,10 +28,10 @@ public class ListerPizzasOptionMenu extends OptionMenu{
 	 * @param tabPizzas
 	 * 				  Le tableau contenant les pizzas.
 	 */
-	public ListerPizzasOptionMenu(PizzaDao dao, Pizza[] tabPizzas) {
+	public ListerPizzasOptionMenu(PizzaDao dao, List<Pizza> pizzas) {
 		
 		this.dao = dao;
-		this.tabPizzas = tabPizzas;
+		this.pizzas = pizzas;
 	}
 
 	/**

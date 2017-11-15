@@ -1,5 +1,9 @@
 package fr.pizzeria.model;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
 /**
  * Classe de création, gestion du menu.
  * 
@@ -10,9 +14,9 @@ package fr.pizzeria.model;
 public class Menu {
 	
 	String titre;
-	OptionMenu[] actions;
+	 Map<Integer, OptionMenu> actions;
 	
-	public Menu(String titre, OptionMenu[] actions) {
+	public Menu(String titre, Map<Integer, OptionMenu> actions) {
 		
 		this.titre = titre;
 		this.actions = actions;
@@ -26,11 +30,11 @@ public class Menu {
 		this.titre = titre;
 	}
 
-	public OptionMenu[] getActions() {
-		return actions;
+	public  HashMap<Integer, OptionMenu> getActions() {
+		return (HashMap<Integer, OptionMenu>) actions;
 	}
 
-	public void setActions(OptionMenu[] actions) {
+	public void setActions(Map<Integer, OptionMenu> actions) {
 		this.actions = actions;
 	}
 	
@@ -44,9 +48,12 @@ public class Menu {
 		
 		System.out.println(this.getTitre());
 		
-		for(OptionMenu action : this.actions) {
+		Iterator iterator = actions.values().iterator();
+		while(iterator.hasNext()) {
 			
-			System.out.println(action.getLibelle());
+			OptionMenu option = (OptionMenu) iterator.next();
+			
+			System.out.println(option.getLibelle());
 			
 		}
 		

@@ -1,5 +1,9 @@
 package fr.pizzeria.ihm;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.exception.SavePizzaException;
@@ -37,34 +41,33 @@ public class PizzeriaAdminConsoleApp {
 		Pizza pizza6 = new Pizza("ORI", "L'orientale", 13.50);
 		Pizza pizza7 = new Pizza("IND", "L'Indienne", 14.00);
 		
-		// Création du tableau des pizzas
-		Pizza[] tabPizzas = {
-				pizza0,
-				pizza1,
-				pizza2,
-				pizza3,
-				pizza4,
-				pizza5,
-				pizza6,
-				pizza7,
-		};
+		// Création de la liste des pizzas
+		List<Pizza> pizzas = new ArrayList<Pizza>();
+		pizzas.add(pizza0);
+		pizzas.add(pizza1);
+		pizzas.add(pizza2);
+		pizzas.add(pizza3);
+		pizzas.add(pizza4);
+		pizzas.add(pizza5);
+		pizzas.add(pizza6);
+		pizzas.add(pizza7);
 	
 		// Création du tableau des options
-		OptionMenu[] actions = new OptionMenu[5]; 
+		Map<Integer, OptionMenu> actions = new HashMap<Integer, OptionMenu>(); 
 		
 		// Création des libellés pizza
-		PizzaDao dao = new PizzaDao(tabPizzas);
+		PizzaDao dao = new PizzaDao(pizzas);
 		
-		actions[0] = new ListerPizzasOptionMenu(dao, tabPizzas);
-		actions[0].setLibelle("1. Lister les pizzas");
-		actions[1] = new AjouterPizzaOptionMenu(dao, tabPizzas);
-		actions[1].setLibelle("2. Ajouter une nouvelle pizza");
-		actions[2] = new ModifierPizzaOptionMenu(dao, tabPizzas);
-		actions[2].setLibelle("3. Mettre à jour une pizza");
-		actions[3] = new SupprimerPizzaOptionMenu(dao, tabPizzas);
-		actions[3].setLibelle("4. Supprimer une pizza");
-		actions[4] = new ExitApplication();
-		actions[4].setLibelle("99. Sortir");
+		actions.put(1, new ListerPizzasOptionMenu(dao, pizzas));
+		actions.get(1).setLibelle("1. Lister les pizzas");
+		actions.put(2, new AjouterPizzaOptionMenu(dao, pizzas));
+		actions.get(2).setLibelle("2. Ajouter une nouvelle pizza");
+		actions.put(3, new ModifierPizzaOptionMenu(dao, pizzas));
+		actions.get(3).setLibelle("3. Mettre à jour une pizza");
+		actions.put(4, new SupprimerPizzaOptionMenu(dao, pizzas));
+		actions.get(4).setLibelle("4. Supprimer une pizza");
+		actions.put(5, new ExitApplication());
+		actions.get(5).setLibelle("99. Sortir");
 		
 		// Création du menu
 		String titre = "\n***** Pizzeria Administration *****";
@@ -82,7 +85,7 @@ public class PizzeriaAdminConsoleApp {
 			
 				case "1" :
 					
-					option = new ListerPizzasOptionMenu(dao, tabPizzas);
+					option = new ListerPizzasOptionMenu(dao, pizzas);
 					
 					try {
 						option.execute(scanner);
@@ -95,7 +98,7 @@ public class PizzeriaAdminConsoleApp {
 					
 				case "2" :
 
-					option = new AjouterPizzaOptionMenu(dao, tabPizzas);
+					option = new AjouterPizzaOptionMenu(dao, pizzas);
 
 					try {
 						option.execute(scanner);
@@ -108,7 +111,7 @@ public class PizzeriaAdminConsoleApp {
 					
 				case "3" :
 					
-					option = new ModifierPizzaOptionMenu(dao, tabPizzas);
+					option = new ModifierPizzaOptionMenu(dao, pizzas);
 					
 					try {
 						option.execute(scanner);
@@ -121,7 +124,7 @@ public class PizzeriaAdminConsoleApp {
 				
 				case "4" :
 					
-					option = new SupprimerPizzaOptionMenu(dao, tabPizzas);
+					option = new SupprimerPizzaOptionMenu(dao, pizzas);
 					
 					try {
 						option.execute(scanner);
