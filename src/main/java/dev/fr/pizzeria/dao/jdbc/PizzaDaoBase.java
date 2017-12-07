@@ -34,6 +34,7 @@ public class PizzaDaoBase implements IPizzaDao{
 	
 	/**
 	 * Méthode de récupération des pizzas de la BDD
+	 * @return pizzas, la liste des pizzas en BDD
 	 */
 	@Override
 	public ArrayList<Pizza> findAllPizzas(){
@@ -105,6 +106,8 @@ public class PizzaDaoBase implements IPizzaDao{
 
 	/**
 	 * Méthode de création d'une pizza dans la BDD
+	 * @param pizza, la pizza qui va être créée
+	 * @return true, si tout c'est bien passé
 	 */
 	@Override
 	public boolean saveNewPizza(Pizza pizza) {
@@ -136,6 +139,9 @@ public class PizzaDaoBase implements IPizzaDao{
 
 	/**
 	 * Méthode de mise à jour d'une pizza en BDD
+	 * @param codePizza, code de la pizza à mettre à jour
+	 * 		  pizza, les infos de la pizza qui vont être enregistrés
+	 * @return true, si tout c'est bien passé
 	 */
 	@Override
 	public boolean updatePizza(String codePizza, Pizza pizza) {
@@ -168,6 +174,8 @@ public class PizzaDaoBase implements IPizzaDao{
 
 	/**
 	 * Méthode de suppression d'une pizza dans la BDD
+	 * @param codePizza, code la pizza à supprimer
+	 * return true, si tout c'est bien passé
 	 */
 	@Override
 	public boolean deletePizza(String codePizza) {
