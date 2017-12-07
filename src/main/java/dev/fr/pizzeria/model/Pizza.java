@@ -1,6 +1,5 @@
 package dev.fr.pizzeria.model;
 
-import dev.fr.pizzeria.model.CategoriePizza;
 import dev.fr.pizzeria.model.ToString;
 
 /**

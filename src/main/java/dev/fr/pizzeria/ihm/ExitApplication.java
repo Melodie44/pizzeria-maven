@@ -21,6 +21,7 @@ public class ExitApplication extends OptionMenu{
 	 *
 	 * @return Un boolean, true si tout c'est bien passé.
 	 */
+	@Override
 	public boolean execute(Scanner scanner) {
 		
 		System.out.println("Aurevoir ");

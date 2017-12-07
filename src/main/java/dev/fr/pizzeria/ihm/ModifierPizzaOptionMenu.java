@@ -1,15 +1,12 @@
 package dev.fr.pizzeria.ihm;
 
-import java.util.List;
 import java.util.Scanner;
 
-import dev.fr.pizzeria.dao.PizzaDao;
 import dev.fr.pizzeria.dao.jdbc.PizzaDaoBase;
 import dev.fr.pizzeria.exception.UpdatePizzaException;
 import dev.fr.pizzeria.ihm.ExitApplication;
 import dev.fr.pizzeria.ihm.ListerPizzasOptionMenu;
 import dev.fr.pizzeria.model.Categorie;
-import dev.fr.pizzeria.model.CategoriePizza;
 import dev.fr.pizzeria.model.OptionMenu;
 import dev.fr.pizzeria.model.Pizza;
 

@@ -14,6 +14,11 @@ import dev.fr.pizzeria.dao.IPizzaDao;
 import dev.fr.pizzeria.model.Categorie;
 import dev.fr.pizzeria.model.Pizza;
 
+/**
+ * 
+ * @author MAUBOIS Mélodie
+ *
+ */
 public class PizzaDaoBase implements IPizzaDao{
 	
 	static ResourceBundle bundle = ResourceBundle.getBundle("jdbc");
@@ -27,6 +32,9 @@ public class PizzaDaoBase implements IPizzaDao{
 		}
 	}
 	
+	/**
+	 * Méthode de récupération des pizzas de la BDD
+	 */
 	@Override
 	public ArrayList<Pizza> findAllPizzas(){
 		
@@ -35,7 +43,7 @@ public class PizzaDaoBase implements IPizzaDao{
 		try {
 			conn = DriverManager.getConnection(bundle.getString("database.pizzeria.url"), bundle.getString("database.pizzeria.user"), bundle.getString("database.pizzeria.password"));
 			conn.setAutoCommit(false);
-
+			
 			stat = conn.createStatement();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -95,6 +103,9 @@ public class PizzaDaoBase implements IPizzaDao{
 		return pizzas;
 	};
 
+	/**
+	 * Méthode de création d'une pizza dans la BDD
+	 */
 	@Override
 	public boolean saveNewPizza(Pizza pizza) {
 		
@@ -123,7 +134,9 @@ public class PizzaDaoBase implements IPizzaDao{
 		return true;
 	}
 
-
+	/**
+	 * Méthode de mise à jour d'une pizza en BDD
+	 */
 	@Override
 	public boolean updatePizza(String codePizza, Pizza pizza) {
 		
@@ -153,7 +166,9 @@ public class PizzaDaoBase implements IPizzaDao{
 		return true;
 	}
 
-
+	/**
+	 * Méthode de suppression d'une pizza dans la BDD
+	 */
 	@Override
 	public boolean deletePizza(String codePizza) {
 		

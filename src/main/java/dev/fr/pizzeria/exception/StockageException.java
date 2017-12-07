@@ -27,6 +27,7 @@ public class StockageException extends Exception{
 	 * 
 	 * @return un String, le message pour l'utilisateur
 	 */
+	@Override
 	public String getMessage() {
 		return message;
 	}

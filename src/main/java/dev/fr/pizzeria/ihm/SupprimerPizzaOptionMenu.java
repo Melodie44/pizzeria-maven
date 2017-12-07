@@ -1,13 +1,10 @@
 package dev.fr.pizzeria.ihm;
 
-import java.util.List;
 import java.util.Scanner;
 
-import dev.fr.pizzeria.dao.PizzaDao;
 import dev.fr.pizzeria.dao.jdbc.PizzaDaoBase;
 import dev.fr.pizzeria.exception.DeletePizzaException;
 import dev.fr.pizzeria.model.OptionMenu;
-import dev.fr.pizzeria.model.Pizza;
 
 /**
  * Classe de l'option pour supprimer une pizza.
